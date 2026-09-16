@@ -8,7 +8,9 @@ export default function ToolContent({
 }: {
   tool: ToolSeo;
 }) {
-  const related = tool.related.map((path) => toolsSeo[path]);
+  const related = tool.related
+    .map((path) => toolsSeo[path])
+    .filter((item) => item !== undefined);
 
   return (
     <div className="border-t border-gray-200 bg-white text-gray-900">
