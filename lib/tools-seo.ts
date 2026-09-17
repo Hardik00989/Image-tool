@@ -1,5 +1,9 @@
 // SEO copy for every tool page: metadata, how-to steps, FAQs and related tools.
 // Used by each tool's layout.tsx, the ToolContent section and the sitemap.
+// Image tools are defined below; each PDF tool has its own file in lib/pdf-seo/.
+
+import { mergePdfSeo } from "@/lib/pdf-seo/merge-pdf";
+import { splitPdfSeo } from "@/lib/pdf-seo/split-pdf";
 
 export type ToolSeo = {
   path: string;
@@ -21,7 +25,7 @@ const privacyFaq = {
     "No. Your images are processed entirely in your browser and never leave your device, so nobody else can see them.",
 };
 
-export const toolsSeo: Record<string, ToolSeo> = {
+const imageToolsSeo: Record<string, ToolSeo> = {
   "/image-resizer": {
     path: "/image-resizer",
     name: "Image Resizer",
@@ -343,4 +347,14 @@ export const toolsSeo: Record<string, ToolSeo> = {
     ],
     related: ["/crop-image", "/image-resizer", "/image-compressor"],
   },
+};
+
+const pdfToolsSeo: ToolSeo[] = [
+  mergePdfSeo,
+  splitPdfSeo,
+];
+
+export const toolsSeo: Record<string, ToolSeo> = {
+  ...imageToolsSeo,
+  ...Object.fromEntries(pdfToolsSeo.map((tool) => [tool.path, tool])),
 };
