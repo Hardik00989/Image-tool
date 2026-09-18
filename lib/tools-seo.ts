@@ -2,6 +2,7 @@
 // Used by each tool's layout.tsx, the ToolContent section and the sitemap.
 // Image tools are defined below; each PDF tool has its own file in lib/pdf-seo/.
 
+import { rotatePdfSeo } from "@/lib/pdf-seo/rotate-pdf";
 import { mergePdfSeo } from "@/lib/pdf-seo/merge-pdf";
 import { splitPdfSeo } from "@/lib/pdf-seo/split-pdf";
 
@@ -350,6 +351,7 @@ const imageToolsSeo: Record<string, ToolSeo> = {
 };
 
 const pdfToolsSeo: ToolSeo[] = [
+  rotatePdfSeo,
   mergePdfSeo,
   splitPdfSeo,
 ];
