@@ -6,6 +6,7 @@ import { rotatePdfSeo } from "@/lib/pdf-seo/rotate-pdf";
 import { mergePdfSeo } from "@/lib/pdf-seo/merge-pdf";
 import { splitPdfSeo } from "@/lib/pdf-seo/split-pdf";
 import { pdfToJpgSeo } from "@/lib/pdf-seo/pdf-to-jpg";
+import { htmlToPdfSeo } from "@/lib/pdf-seo/html-to-pdf";
 
 export type ToolSeo = {
   path: string;
@@ -356,6 +357,7 @@ const pdfToolsSeo: ToolSeo[] = [
   mergePdfSeo,
   splitPdfSeo,
   pdfToJpgSeo,
+  htmlToPdfSeo,
 ];
 
 export const toolsSeo: Record<string, ToolSeo> = {
