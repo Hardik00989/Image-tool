@@ -7,6 +7,8 @@ import { mergePdfSeo } from "@/lib/pdf-seo/merge-pdf";
 import { splitPdfSeo } from "@/lib/pdf-seo/split-pdf";
 import { pdfToJpgSeo } from "@/lib/pdf-seo/pdf-to-jpg";
 import { htmlToPdfSeo } from "@/lib/pdf-seo/html-to-pdf";
+import { protectPdfSeo } from "@/lib/pdf-seo/protect-pdf";
+import { unlockPdfSeo } from "@/lib/pdf-seo/unlock-pdf";
 
 export type ToolSeo = {
   path: string;
@@ -358,6 +360,8 @@ const pdfToolsSeo: ToolSeo[] = [
   splitPdfSeo,
   pdfToJpgSeo,
   htmlToPdfSeo,
+  protectPdfSeo,
+  unlockPdfSeo,
 ];
 
 export const toolsSeo: Record<string, ToolSeo> = {
