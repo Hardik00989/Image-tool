@@ -9,6 +9,7 @@ import { pdfToJpgSeo } from "@/lib/pdf-seo/pdf-to-jpg";
 import { htmlToPdfSeo } from "@/lib/pdf-seo/html-to-pdf";
 import { protectPdfSeo } from "@/lib/pdf-seo/protect-pdf";
 import { unlockPdfSeo } from "@/lib/pdf-seo/unlock-pdf";
+import { signPdfSeo } from "@/lib/pdf-seo/sign-pdf";
 
 export type ToolSeo = {
   path: string;
@@ -362,6 +363,7 @@ const pdfToolsSeo: ToolSeo[] = [
   htmlToPdfSeo,
   protectPdfSeo,
   unlockPdfSeo,
+  signPdfSeo,
 ];
 
 export const toolsSeo: Record<string, ToolSeo> = {
