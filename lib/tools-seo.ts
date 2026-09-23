@@ -15,6 +15,8 @@ import { redactPdfSeo } from "@/lib/pdf-seo/redact-pdf";
 import { comparePdfSeo } from "@/lib/pdf-seo/compare-pdf";
 import { addPageNumbersSeo } from "@/lib/pdf-seo/add-page-numbers";
 import { addWatermarkSeo } from "@/lib/pdf-seo/add-watermark";
+import { cropPdfSeo } from "@/lib/pdf-seo/crop-pdf";
+import { pdfFormsSeo } from "@/lib/pdf-seo/pdf-forms";
 
 export type ToolSeo = {
   path: string;
@@ -374,6 +376,8 @@ const pdfToolsSeo: ToolSeo[] = [
   comparePdfSeo,
   addPageNumbersSeo,
   addWatermarkSeo,
+  cropPdfSeo,
+  pdfFormsSeo,
 ];
 
 export const toolsSeo: Record<string, ToolSeo> = {
