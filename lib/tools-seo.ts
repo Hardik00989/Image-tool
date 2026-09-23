@@ -13,6 +13,8 @@ import { signPdfSeo } from "@/lib/pdf-seo/sign-pdf";
 import { editPdfSeo } from "@/lib/pdf-seo/edit-pdf";
 import { redactPdfSeo } from "@/lib/pdf-seo/redact-pdf";
 import { comparePdfSeo } from "@/lib/pdf-seo/compare-pdf";
+import { addPageNumbersSeo } from "@/lib/pdf-seo/add-page-numbers";
+import { addWatermarkSeo } from "@/lib/pdf-seo/add-watermark";
 
 export type ToolSeo = {
   path: string;
@@ -370,6 +372,8 @@ const pdfToolsSeo: ToolSeo[] = [
   editPdfSeo,
   redactPdfSeo,
   comparePdfSeo,
+  addPageNumbersSeo,
+  addWatermarkSeo,
 ];
 
 export const toolsSeo: Record<string, ToolSeo> = {
