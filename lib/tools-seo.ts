@@ -19,6 +19,7 @@ import { cropPdfSeo } from "@/lib/pdf-seo/crop-pdf";
 import { pdfFormsSeo } from "@/lib/pdf-seo/pdf-forms";
 import { compressPdfSeo } from "@/lib/pdf-seo/compress-pdf";
 import { repairPdfSeo } from "@/lib/pdf-seo/repair-pdf";
+import { ocrPdfSeo } from "@/lib/pdf-seo/ocr-pdf";
 
 export type ToolSeo = {
   path: string;
@@ -382,6 +383,7 @@ const pdfToolsSeo: ToolSeo[] = [
   pdfFormsSeo,
   compressPdfSeo,
   repairPdfSeo,
+  ocrPdfSeo,
 ];
 
 export const toolsSeo: Record<string, ToolSeo> = {
