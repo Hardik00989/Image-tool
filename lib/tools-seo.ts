@@ -17,6 +17,8 @@ import { addPageNumbersSeo } from "@/lib/pdf-seo/add-page-numbers";
 import { addWatermarkSeo } from "@/lib/pdf-seo/add-watermark";
 import { cropPdfSeo } from "@/lib/pdf-seo/crop-pdf";
 import { pdfFormsSeo } from "@/lib/pdf-seo/pdf-forms";
+import { compressPdfSeo } from "@/lib/pdf-seo/compress-pdf";
+import { repairPdfSeo } from "@/lib/pdf-seo/repair-pdf";
 
 export type ToolSeo = {
   path: string;
@@ -378,6 +380,8 @@ const pdfToolsSeo: ToolSeo[] = [
   addWatermarkSeo,
   cropPdfSeo,
   pdfFormsSeo,
+  compressPdfSeo,
+  repairPdfSeo,
 ];
 
 export const toolsSeo: Record<string, ToolSeo> = {
