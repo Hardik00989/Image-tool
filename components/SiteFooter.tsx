@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-const toolLinks = [
-  { href: "/background-remover", label: "Background Remover" },
-  { href: "/image-resizer", label: "Image Resizer" },
-  { href: "/image-compressor", label: "Image Compressor" },
-  { href: "/image-to-pdf", label: "Image to PDF" },
-  { href: "/crop-image", label: "Image Editor" },
-];
+import { imageCategory, pdfTools } from "@/lib/tool-categories";
 
 const companyLinks = [
   { href: "/about", label: "About" },
@@ -15,11 +8,13 @@ const companyLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const linkClass = "hover:text-blue-600";
+
 export default function SiteFooter() {
   return (
     <footer className="border-t border-gray-200 bg-white text-gray-900">
 
-      <div className="mx-auto grid max-w-7xl gap-12 lg:gap-16 px-6 py-14 sm:px-10 lg:px-16 md:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 sm:px-10 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_2fr_1fr] lg:gap-12 lg:px-16">
 
         {/* Brand */}
 
@@ -33,31 +28,55 @@ export default function SiteFooter() {
           </Link>
 
           <p className="mt-4 max-w-sm text-base leading-7 text-gray-500">
-            Simple online tools for resizing, compressing,
-            converting and editing images.
+            Free online image and PDF tools that run in your browser.
+            Your files never leave your device.
           </p>
 
         </div>
 
-        {/* Tools */}
+        {/* Image Tools */}
 
         <div>
 
           <h3 className="text-lg font-semibold text-gray-900">
-            Tools
+            Image Tools
           </h3>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-4 text-base text-gray-600">
-            {toolLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-blue-600"
-              >
-                {link.label}
-              </Link>
+          <ul className="mt-5 space-y-4 text-base text-gray-600">
+            {imageCategory.tools.map((tool) => (
+              <li key={tool.href}>
+                <Link
+                  href={tool.href}
+                  className={linkClass}
+                >
+                  {tool.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
+
+        </div>
+
+        {/* PDF Tools */}
+
+        <div>
+
+          <h3 className="text-lg font-semibold text-gray-900">
+            PDF Tools
+          </h3>
+
+          <ul className="mt-5 grid grid-cols-2 gap-x-8 gap-y-4 text-base text-gray-600">
+            {pdfTools.map((tool) => (
+              <li key={tool.href}>
+                <Link
+                  href={tool.href}
+                  className={linkClass}
+                >
+                  {tool.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
         </div>
 
@@ -69,17 +88,18 @@ export default function SiteFooter() {
             Company
           </h3>
 
-          <div className="mt-5 flex flex-col gap-4 text-base text-gray-600">
+          <ul className="mt-5 space-y-4 text-base text-gray-600">
             {companyLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-blue-600"
-              >
-                {link.label}
-              </Link>
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={linkClass}
+                >
+                  {link.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
         </div>
 

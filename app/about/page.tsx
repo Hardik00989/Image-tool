@@ -1,11 +1,12 @@
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, pageMetadata } from "@/lib/site";
+import { imageCategory, pdfCategories } from "@/lib/tool-categories";
 import Link from "next/link";
 
 export const metadata = pageMetadata({
   title: "About Us",
   description:
-    "About ImageTools – the team behind our free online image tools: resizer, compressor, converters, image to PDF, cropper and background remover.",
+    "About ImageTools – free online image and PDF tools: resize and compress images, remove backgrounds, and merge, split, convert, edit and protect PDFs.",
   path: "/about",
 });
 
@@ -63,13 +64,28 @@ export default function AboutPage() {
                 Available Tools
               </h2>
 
-              <ul className="mt-4 space-y-3 text-gray-600">
-                <li>• Image Resizer</li>
-                <li>• Image Compressor</li>
-                <li>• Image to PDF Converter</li>
-                <li>• Image Cropper and Editor</li>
-                <li>• Background Remover</li>
-              </ul>
+              <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                {[imageCategory, ...pdfCategories].map((category) => (
+                  <div key={category.id}>
+                    <h3 className="font-semibold text-gray-900">
+                      {category.title}
+                    </h3>
+
+                    <ul className="mt-2 space-y-1.5 text-gray-600">
+                      {category.tools.map((tool) => (
+                        <li key={tool.href}>
+                          <Link
+                            href={tool.href}
+                            className="hover:text-blue-600"
+                          >
+                            {tool.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </section>
 
             <section>
