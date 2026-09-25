@@ -6,6 +6,7 @@ import {
   siteDescription,
   siteName,
 } from "@/lib/site";
+import { pdfCategories } from "@/lib/tool-categories";
 import { toolsSeo } from "@/lib/tools-seo";
 
 const tools = [
@@ -41,7 +42,7 @@ const tools = [
 ];
 
 export const metadata = pageMetadata({
-  title: "Free Online Image Tools – Resize, Compress & Convert | ImageTools",
+  title: "Free Image & PDF Tools – Resize, Compress, Merge | ImageTools",
   description: siteDescription,
   path: "/",
   absoluteTitle: true,
@@ -53,6 +54,11 @@ export const metadata = pageMetadata({
     "image to pdf",
     "crop image",
     "background remover",
+    "merge pdf",
+    "compress pdf",
+    "split pdf",
+    "pdf to jpg",
+    "sign pdf",
   ],
 });
 
@@ -70,7 +76,7 @@ const homeSchema = [
   },
   {
     "@type": "ItemList",
-    name: "Free online image tools",
+    name: "Free online image and PDF tools",
     itemListElement: Object.values(toolsSeo).map((tool, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -96,19 +102,19 @@ export default function Home() {
 
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-5 py-2.5 text-base font-medium text-blue-700">
             <span>✦</span>
-            Simple & powerful image tools
+            Simple & powerful image and PDF tools
           </div>
 
           <h1 className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
-            Free Online Image Tools
+            Free Online Image & PDF Tools
             <span className="block text-blue-600">
               Made Simple
             </span>
           </h1>
 
           <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-gray-600 sm:text-xl">
-            Resize, compress, convert, edit and remove backgrounds
-            from your images — all from one simple website.
+            Resize, compress and edit images. Merge, split, convert,
+            protect and sign PDFs — free, and all in your browser.
           </p>
 
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
@@ -217,6 +223,74 @@ export default function Home() {
 
       </section>
 
+      {/* PDF Tools */}
+
+      <section
+        id="pdf-tools"
+        className="mx-auto max-w-7xl scroll-mt-24 px-6 pb-20 sm:px-10 lg:px-16 sm:pb-24"
+      >
+
+        <div className="mx-auto max-w-3xl text-center">
+
+          <p className="text-base font-semibold uppercase tracking-wider text-blue-600">
+            PDF Tools
+          </p>
+
+          <h2 className="mt-3 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Every tool for your PDFs
+          </h2>
+
+          <p className="mt-5 text-lg leading-8 text-gray-600">
+            Merge, split, compress, convert, edit and protect PDF files —
+            right in your browser.
+          </p>
+
+        </div>
+
+        <div className="mt-12 grid gap-x-10 gap-y-12 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm sm:grid-cols-2 sm:p-10 lg:grid-cols-3">
+
+          {pdfCategories.map((category) => (
+            <div key={category.id}>
+
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500">
+                {category.title}
+              </h3>
+
+              <ul className="mt-5 space-y-1">
+                {category.tools.map((tool) => {
+                  const Icon = tool.icon;
+
+                  return (
+                    <li key={tool.href}>
+                      <Link
+                        href={tool.href}
+                        className="group -mx-3 flex items-center gap-4 rounded-xl px-3 py-2.5 transition hover:bg-gray-50"
+                      >
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${category.color}`}
+                        >
+                          <Icon
+                            className="h-5 w-5"
+                            aria-hidden="true"
+                          />
+                        </span>
+
+                        <span className="text-base font-semibold text-gray-800 transition group-hover:text-blue-600">
+                          {tool.label}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+
+            </div>
+          ))}
+
+        </div>
+
+      </section>
+
       {/* How It Works */}
 
       <section className="border-y border-gray-200 bg-white">
@@ -248,7 +322,7 @@ export default function Home() {
               </h3>
 
               <p className="mt-3 text-base leading-7 text-gray-600">
-                Select the image tool that matches what you want to do.
+                Select the image or PDF tool that matches what you want to do.
               </p>
 
             </div>
@@ -260,11 +334,11 @@ export default function Home() {
               </div>
 
               <h3 className="mt-5 text-lg font-bold">
-                Upload Your Image
+                Upload Your File
               </h3>
 
               <p className="mt-3 text-base leading-7 text-gray-600">
-                Upload your image and adjust the available options.
+                Upload your image or PDF and adjust the available options.
               </p>
 
             </div>
@@ -280,7 +354,7 @@ export default function Home() {
               </h3>
 
               <p className="mt-3 text-base leading-7 text-gray-600">
-                Process your image and download the finished result.
+                Process your file and download the finished result.
               </p>
 
             </div>
@@ -303,13 +377,13 @@ export default function Home() {
         </p>
 
         <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-          Useful image tools without the complexity
+          Useful image and PDF tools without the complexity
         </h2>
 
         <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
-          ImageTools brings common image editing and conversion tasks
-          together in one easy-to-use place. Whether you need to resize,
-          compress, convert, crop or remove a background, you can get
+          ImageTools brings common image and PDF tasks together in one
+          easy-to-use place. Whether you need to resize an image, remove a
+          background, or merge, compress, sign or protect a PDF, you can get
           started in just a few clicks.
         </p>
 
@@ -329,11 +403,11 @@ export default function Home() {
         <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl bg-blue-600 px-6 py-14 text-center text-white shadow-lg sm:px-12 sm:py-16">
 
           <h2 className="text-4xl font-bold sm:text-5xl">
-            Ready to edit your image?
+            Ready to get started?
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-100">
-            Choose one of our free image tools and get started.
+            Choose one of our free image or PDF tools — no sign-up needed.
           </p>
 
           <a

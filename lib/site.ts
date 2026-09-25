@@ -9,7 +9,7 @@ export const siteUrl = (
 export const siteName = "ImageTools";
 
 export const siteDescription =
-  "Free online image tools to resize, compress, crop and convert images, remove backgrounds and create PDFs. Fast, private and processed in your browser.";
+  "Free image and PDF tools: resize and compress images, remove backgrounds, and merge, split, compress, convert or sign PDFs — all in your browser.";
 
 type PageMetadataOptions = {
   title: string;
